@@ -24,7 +24,7 @@ const totalPages = Math.ceil((students || []).length / size);
 const editStudent = (student) => {
   setName(student.name);
   setCourse(student.course);
-  setId(student.id);   // ⭐ very important for update
+  setId(student.id);   
 };
   useEffect(() => {
     loadStudents();
@@ -55,11 +55,11 @@ const saveStudent = () => {
   };
 
   if(id === null){
-    // ⭐ CREATE
+    //  CREATE
     axios.post("http://localhost:8080/student", student)
       .then(() => loadStudents());
   } else {
-    // ⭐ UPDATE
+    //  UPDATE
     axios.put("http://localhost:8080/student", student)
       .then(() => loadStudents());
   }
@@ -74,7 +74,7 @@ const saveStudent = () => {
       .catch(err => console.log(err));
   };
 
-  // ⭐⭐⭐ RETURN MUST BE INSIDE FUNCTION
+  // RETURN MUST BE INSIDE FUNCTION
   return (
     <div className="container mt-5">
 
